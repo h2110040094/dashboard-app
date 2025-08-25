@@ -1,3 +1,105 @@
+Here’s an updated **README** with a **“Getting Started”** section included:
+
+---
+
+# Autonomous Vehicle Monitoring
+
+[GitHub Repository](https://github.com/h2110040094/dashboard-app)
+
+## Overview
+
+**Autonomous Vehicle Monitoring** is a real-time monitoring system designed for autonomous vehicles. The system collects, processes, and visualizes live vehicle data to ensure performance tracking and safety analysis.
+
+The motivation behind this project was to **develop a comprehensive real-time monitoring system** that can track essential parameters such as vehicle speed, GPS location, steering angle, and LiDAR/Camera data. Continuous monitoring is crucial in autonomous driving for safety, debugging, and performance evaluation.
+
+## Features
+
+* **Real-time data collection** using ROS topics.
+* **Data visualization** using Grafana dashboards for key vehicle parameters.
+* **Data preprocessing and analysis** with Python scripts.
+* **Integration with edge computing tools** such as Prometheus and InfluxDB for efficient metric collection.
+
+## Technologies Used
+
+* **ROS (Robot Operating System):** For real-time data publishing.
+* **Python:** Data processing and analysis scripts.
+* **Grafana:** Dashboard visualization of vehicle metrics.
+* **Prometheus & InfluxDB:** Real-time metric collection and storage.
+* **Edge Computing Concepts:** Handling live data efficiently on autonomous vehicles.
+
+## Motivation
+
+Autonomous vehicles require **continuous monitoring of critical parameters** to ensure safe operation and optimal performance. This project was initiated to build a structured, reproducible system that could:
+
+1. Collect live data from vehicle sensors.
+2. Process and analyze the data in real-time.
+3. Visualize key metrics on a dashboard for immediate insights.
+
+## Learning Outcomes
+
+Through this project, I gained hands-on experience in:
+
+* Real-time data streaming and processing.
+* Integrating monitoring tools for autonomous systems.
+* Building dashboards for visualization and performance monitoring.
+* Deploying a structured and reproducible system for safety-critical applications.
+
+## Getting Started
+
+Follow these steps to set up and run the project locally:
+
+### Prerequisites
+
+* **Python 3.x**
+* **ROS (Noetic / Melodic recommended)**
+* **Docker** (for Prometheus, InfluxDB, Grafana)
+* **Git**
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/h2110040094/dashboard-app.git
+   cd dashboard-app
+   ```
+
+2. Install required Python packages:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Start ROS and launch the data publishers:
+
+   ```bash
+   roscore
+   roslaunch vehicle_monitoring data_publisher.launch
+   ```
+
+4. Start Docker services for Prometheus, InfluxDB, and Grafana:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+5. Open Grafana in your browser (default: `http://localhost:3000`) and import the dashboard configuration provided in the repo.
+
+### Usage
+
+* Monitor vehicle parameters in real-time via the Grafana dashboard.
+* Analyze historical metrics using InfluxDB.
+* Extend Python scripts for custom preprocessing or analysis.
+
+---
+
+If you want, I can also **add a diagram showing the architecture of the system**—that would make the README visually appealing and easier to understand for anyone reading it.
+
+Do you want me to do that?
+
+
+
+
 # Getting Started with Create React App
 
 ![Picture1](https://github.com/user-attachments/assets/0e973f4e-1a2c-4bad-b87e-0ce07f0513a6)
