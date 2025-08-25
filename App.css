@@ -1,0 +1,433 @@
+.App {
+  text-align: center;
+  overflow: hidden; /* Hide scrollbars for the entire app */
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.App-header h1 {
+  margin: 0 auto;
+  flex: 1; /* Ensures the title is centered between the logos */
+  text-align: center;
+}
+
+.logo {
+  width: 100px;
+}
+
+.left-logo {
+  margin-left: 20px;
+}
+
+.right-logo {
+  margin-right: 70px;
+  width: 150px;
+  height: 50px;
+  transform: scale(1.8);
+}
+
+/* Flex container for the dashboard */
+.dashboard-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping of items */
+  justify-content: left; /* Center items horizontally */
+  align-items: flex-start; /* Align items at the top */
+  margin-top: 20px;
+}
+
+/* Style for each component */
+.component {
+  margin: 20px; /* Keeps the spacing between components */
+  width: calc(15% - 20px); /* Decreased width for six components per row */
+  transition: transform 0.2s ease-in-out; /* Adds hover effect */
+}
+
+.component:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+.camera-feed-container {
+  position: absolute; /* Keep it absolute for positioning */
+  top: 550px; /* Adjust this value to position vertically */
+  right: 200px; /* Position it closer to the right edge */
+  width: 1800px; /* Further increased width of the video feed */
+  height: 1200px; /* Increased height of the video feed */
+  overflow: hidden; /* Hide overflow to prevent scrolling */
+  z-index: 100; /* Bring the camera feed above other elements if necessary */
+  
+}
+
+
+.map-container {
+  position: absolute; /* Position the map absolutely within its parent container */
+  left: 150px; /* Move the map slightly to the right */
+  bottom: 0; /* Keep the map aligned to the bottom */
+  width: 900px; /* Set the width of the map */
+  height: 400px; /* Set the height of the map */
+  z-index: 550; /* Ensure it stays on top */
+  border: 2px solid #000; /* Optional: Border around the map */
+  border-radius: 10px; /* Optional: Rounded corners */
+  overflow: hidden; /* Prevent content overflow */
+  object-fit: cover; /* Make sure the map fits properly */
+  margin: 20px; /* Add space around the map */
+}
+
+
+/* Download Button Styles */
+.download-button {
+  
+  padding: 12px 29px; /* Increased padding for a more substantial button */
+  font-size: 36px; /* Font size for the button text */
+  color: white; /* Text color */
+  background: linear-gradient(90deg, #007bff, #0056b3); /* Gradient background */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background color and scaling */
+  margin: 20px 0 20px 20px; /* Margin around the button */
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); /* Subtle shadow for depth */
+  font-weight: bold; /* Make the text bold */
+  align-self: flex-end;
+  
+}
+
+.download-button:hover {
+  background: linear-gradient(90deg, #0056b3, #004494); /* Darker gradient on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.download-button:focus {
+  outline: none; /* Remove outline on focus */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Outline effect on focus */
+}
+
+/* Optional: Add a responsive design for smaller screens */
+@media (max-width: 600px) {
+  .download-button {
+    width: 100%; /* Full width on small screens */
+    font-size: 38px; /* Slightly larger text */
+  }
+}
+
+
+/* Sensor Container for Velodyne and Livox */
+.sensor-container {
+  position: absolute;
+  top: 700px;
+  right: 50px; /* Reduced the right spacing to bring it closer to the edge */
+  display: flex;
+  justify-content: space-between; /* Distribute the components evenly */
+  margin: 20px;
+  padding: 20px;
+  gap: 40px; /* Adjust the gap if needed for more/less space between the sensors */
+}
+
+.sensor-component {
+  flex: 1; /* Allow both components to take equal space */
+  margin: 0 20px; /* Add margin between the components */
+}
+
+/* General style for gauge labels (like Distance, Steering Angle, etc.) */
+.gauge-label {
+  font-size: 20px; /* Adjust to your preferred size */
+  font-weight: bold; /* Makes the text bold for better readability */
+  margin-bottom: 5px; /* Adds some spacing below the label */
+}
+
+/* Style for the values (like Distance: 0.00 meters, Steering Angle: 0.00°) */
+.gauge-value {
+  font-size: 24px; /* Increase the size of the values */
+  color: #333; /* Set the color of the text if needed */
+}
+
+/* Specific adjustment for smaller labels or numbers in gauges */
+.gauge-numbers {
+  font-size: 18px; /* You can adjust this for numbers on the gauges */
+}
+
+/* Example for the speedometer or similar component */
+.speed-label, .steering-label, .distance-label, .brake-label {
+  font-size: 22px; /* Increase the font size for specific labels */
+  font-weight: bold;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+  gap: 10px; /* Space between grid items */
+}
+
+.grid-item {
+  background-color: lightgray; /* Item background */
+  padding: 20px; /* Item padding */
+  text-align: center; /* Center content */
+}
+
+.App {
+  text-align: center;
+}
+
+/* Steering Wheel Container */
+.steering-wheel-container {
+  position: absolute; /* Absolute positioning to place it near the camera feed */
+  top: 150px; /* Align it with the top of the camera feed */
+  right: 200px; /* Adjust this to move it next to the camera feed */
+  width: 300px; /* Adjust the width as per your design */
+  height: auto; /* Auto height to maintain aspect ratio */
+  z-index: 100; /* Ensure it appears above other elements if needed */
+  text-align: center; /* Center-align the text and image */
+  text-align: center; /* Center align the label and image */
+  margin-top: 20px; /* Optional: Add some margin above */
+}
+
+/* Steering Wheel Image */
+.steering-wheel {
+  width: 100%; /* Make the image fill the container */
+  height: auto; /* Maintain aspect ratio */
+  right: 200px;
+}
+
+/* Steering Wheel Text (label) */
+.steering-wheel-label {
+  font-size: 30px; /* Adjust the font size */
+  font-weight: bold; /* Make the text bold */
+  margin-bottom: 80px; /* Add spacing between the text and the image */
+  color: #333; /* Set a color for the text */
+}
+
+/* Sensor Container for Velodyne and Livox */
+.sensor-container {
+  position: absolute;
+  top: 700px;
+  right: 50px; /* Reduced the right spacing to bring it closer to the edge */
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping of items */
+  justify-content: space-between; /* Distribute the components evenly */
+  align-items: center; /* Align items to the center vertically */
+  margin: 20px;
+  padding: 20px;
+  gap: 40px; /* Adjust the gap if needed for more/less space between the sensors */
+}
+
+.sensor-component {
+  flex: 1; /* Allow both components to take equal space */
+  margin: 0 20px; /* Add margin between the components */
+}
+
+/* Speed Gauge */
+.speed-label {
+  font-size: 22px; /* Increase the font size for specific labels */
+  font-weight: bold;
+}
+
+/* Steering Angle Gauge */
+.steering-label {
+  font-size: 22px; /* Adjust the font size for the steering angle gauge */
+  font-weight: bold;
+}
+
+/* Additional adjustments for specific components */
+.speed-gauge, .steering-gauge {
+  width: 150px; /* Set fixed width for each gauge */
+  height: auto; /* Maintain the aspect ratio */
+}
+
+/* Ensure that both speed and steering are side by side */
+.speed-container, .steering-container {
+  display: inline-block; /* Make sure they are inline with each other */
+  width: 45%; /* You can adjust this to change how much space each takes */
+  margin: 10px; /* Adds some space between them */
+  text-align: center;
+  margin-right: 80px;
+}
+
+/* Flex container for Speed and Steering Angle gauges */
+.gauge-flex-container {
+  display: flex;
+  justify-content: space-around; /* Distribute the gauges evenly */
+  align-items: center; /* Align the gauges vertically */
+  margin: 20px; /* Optional: adjust spacing around the gauges */
+}
+
+.component {
+  width: 300px; /* Adjust the width of the components to fit them side by side */
+  margin: 10px; /* Space between components */
+}
+
+.gauge-flex-container {
+  display: flex;
+  justify-content: space-around; /* Keep the gauges evenly spaced */
+  align-items: center; /* Align them vertically */
+  margin: 20px 0; /* Adjust the margin between rows */
+}
+
+.component {
+  width: 300px; /* You can adjust the width if needed */
+  margin: 20px 30px; /* Increased margin to add space between gauges */
+  text-align: center; /* Ensure the text is centered */
+}
+
+/* Flex container for the dashboard */
+.dashboard-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping of items */
+  justify-content: left; /* Align items to the left */
+  align-items: flex-start; /* Align items at the top */
+  margin-top: 20px;
+}
+
+/* Style for each component */
+.component {
+  margin: 20px; /* Increased spacing between components */
+  width: 400px; /* Increased width for larger gauges */
+  transition: transform 0.2s ease-in-out; /* Adds hover effect */
+}
+
+.component:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+/* Speed Gauge and Steering Angle */
+.speed-gauge, .steering-gauge, .distance-gauge, .brake-gauge, .download-gauge, .upload-gauge {
+  width: 400px; /* Increased width for larger gauge display */
+  height: 300px; /* Height for larger gauge display */
+}
+
+/* Flex container for Speed and Steering Angle gauges */
+.gauge-flex-container {
+  display: flex;
+  justify-content: space-around; /* Keep the gauges evenly spaced */
+  align-items: center;
+  margin: 20px 0; /* Adjust the margin between rows */
+}
+
+.speed-container, .steering-container {
+  display: inline-block;
+  width: 50%; /* Adjust width if needed */
+  margin: 20px;
+  text-align: center;
+}
+
+/* Sensor Container for Velodyne and Livox */
+.sensor-container {
+  display: flex;
+  justify-content: space-between; /* Distribute the components evenly */
+  gap: 40px; /* Adjust the gap if needed */
+}
+
+.sensor-component {
+  flex: 1; /* Allow both components to take equal space */
+}
+
+/* General style for gauge labels */
+.gauge-label {
+  font-size: 24px; /* Adjust the font size */
+  font-weight: bold;
+  margin-bottom: 10px; /* Adds spacing below the label */
+}
+
+/* Style for the values */
+.gauge-value {
+  font-size: 28px; /* Increase the size of the values */
+  color: #333;
+}
+
+/* Style for each component */
+.component {
+  margin: 20px; /* Increased spacing between components */
+  width: 400px; /* Increased width for larger gauges */
+  transition: transform 0.2s ease-in-out; /* Adds hover effect */
+}
+
+.component:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+/* Velodyne, Livox, GPS, ZED Camera gauges */
+.velodyne-gauge, .livox-gauge, .emergency-brake-gauge, .drive-mode-gauge {
+  width: 400px; /* Increased width for larger gauge display */
+  height: 300px; /* Height for larger gauge display */
+}
+
+/* Sensor Container for Velodyne and Livox */
+.sensor-container {
+  display: flex;
+  justify-content: space-between; /* Distribute the components evenly */
+  align-items: center;
+  gap: 40px; /* Adjust the gap if needed */
+  margin-top: 30px; /* Optional: Add more space above the sensors */
+}
+
+.sensor-component {
+  flex: 1; /* Allow both components to take equal space */
+  margin: 0 20px; /* Add margin between the components */
+}
+
+/* General style for gauge labels */
+.gauge-label {
+  font-size: 24px; /* Adjust the font size */
+  font-weight: bold;
+  margin-bottom: 10px; /* Adds spacing below the label */
+}
+
+/* Style for the values */
+.gauge-value {
+  font-size: 28px; /* Increase the size of the values */
+  color: #333;
+}
+
+/* Sensor Status Text Styling */
+.status-text {
+  font-size: 18px; /* Increase the size of the status text */
+  margin-top: 15px; /* Add margin above the status text */
+  text-align: center;
+}
+
+.steering-wheel {
+  width: 450px;  /* Increase the width */
+  height: 380px; /* Increase the height */
+  transition: transform 0.5s; /* Smooth rotation transition */
+  position: relative;
+  left: -60px; /* Shift 50px to the left */
+  right: 200px;
+}
+
+.dashboard {
+  background-color: #f0f0f0; /* Light gray background */
+  min-height: 100vh; /* Ensure it covers full viewport height */
+}
+
+body {
+  background-color: hwb(0 100% 0%); /* Light gray */
+}
+
+.horizontal-flex-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping if there are too many components */
+  justify-content: space-around; /* Distribute components evenly */
+  align-items: flex-start; /* Align items at the top */
+  margin-top: 20px;
+}
+
+.sensor-flex-container {
+  display: flex;
+  justify-content: space-around; /* Distribute the components evenly */
+  align-items: flex-start; /* Align items at the top */
+  margin-top: 20px;
+  position: absolute; /* Position the container absolutely */
+  bottom: 0; /* Align it to the bottom */
+  width: 100%; /* Full width to ensure it spans across the bottom */
+}
+
+.sensor-component {
+  flex: 1; /* Allow both components to take equal space */
+  margin: 0 20px; /* Add margin between the components */
+}
